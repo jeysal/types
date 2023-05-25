@@ -529,3 +529,8 @@ export type WidenLiterals<T> =
       : T extends number
         ? number
         : T;
+
+/**
+ * Alias for the common result type for the `assoc` function
+ */
+export type AssocResults<K extends PropertyKey, T, U> = U extends Record<K, any> ? T extends U[K] ? U : Omit<U, K> & Record<K, T> : Omit<U, K> & Record<K, T>;
